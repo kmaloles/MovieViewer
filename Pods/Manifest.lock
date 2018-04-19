@@ -1,0 +1,24 @@
+PODS:
+  - Alamofire (4.7.0)
+  - DateTools (2.0.0)
+  - Gloss (2.0.0)
+  - Kingfisher (4.6.3)
+  - PKHUD (5.0.0)
+
+DEPENDENCIES:
+  - Alamofire (~> 4.5)
+  - DateTools
+  - Gloss (~> 2.0)
+  - Kingfisher (~> 4.0)
+  - PKHUD (~> 5.0)
+
+SPEC CHECKSUMS:
+  Alamofire: 907e0a98eb68cdb7f9d1f541a563d6ac5dc77b25
+  DateTools: 933ac9c490f21f92127cf690ccd8c397e0126caf
+  Gloss: b67617f327406adfd47adf20172d00680a3a31bd
+  Kingfisher: 98e6d5b5e807645743e8ed5ececd25d688d38452
+  PKHUD: 3c001512c6e002091184197a8de7a20420786e3b
+
+PODFILE CHECKSUM: 2a0489e2e9b89131477227240307398f5de246ed
+
+COCOAPODS: 1.4.0
