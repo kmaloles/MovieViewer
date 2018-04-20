@@ -258,9 +258,7 @@ extension SeatMappingViewController: UICollectionViewDelegate, UICollectionViewD
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: SeatsCollectionViewCell.reuseIdentifier(), for: indexPath) as! SeatsCollectionViewCell
         
-        cell.bgView.backgroundColor = .lightGray
-        cell.checkImage.isHidden = true
-//        cell.seatLabel.text = self.seatMapping?.seats?[indexPath.section][indexPath.item]
+        cell.resetCell()
         
         if indexPath.item == 0 || (indexPath.item == 37) {
             cell.bgView.backgroundColor = .white

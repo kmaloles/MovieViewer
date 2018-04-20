@@ -21,3 +21,13 @@ class SeatsCollectionViewCell: UICollectionViewCell {
         // Initialization code
     }
 }
+
+extension SeatsCollectionViewCell {
+    func resetCell(){
+        self.seatLabel.text = ""
+        self.bgView.backgroundColor = .lightGray
+        self.checkImage.isHidden = true
+        self.bgView.isHidden = false
+    }
+}
+
