@@ -9,4 +9,5 @@ pod 'Alamofire', '~> 4.5'
 pod 'DateTools'
 pod 'PKHUD', '~> 5.0' 
 pod 'Kingfisher', '~> 4.0'
+pod 'ZoomCollectionView', :git => 'https://github.com/helmutschneider/ZoomCollectionView.git'
 end

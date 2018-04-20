@@ -419,13 +419,13 @@
                                 </cells>
                             </collectionView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your selected seats" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BFd-Yq-QGQ">
-                                <rect key="frame" x="112.5" y="505" width="150" height="20.5"/>
+                                <rect key="frame" x="112.5" y="539.5" width="150" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <stackView opaque="NO" contentMode="center" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="Hlm-kk-3TF">
-                                <rect key="frame" x="0.0" y="533" width="375" height="30"/>
+                                <rect key="frame" x="0.0" y="567.5" width="375" height="30"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jhx-5v-dm6">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="30"/>
@@ -509,7 +509,7 @@
                             <constraint firstItem="np3-zu-MH7" firstAttribute="top" secondItem="q0Z-KU-OM2" secondAttribute="top" constant="10" id="dGa-Ke-H6l"/>
                             <constraint firstItem="HnT-HB-64A" firstAttribute="top" secondItem="Wd2-Km-51V" secondAttribute="bottom" constant="8" id="hTA-Ay-pT4"/>
                             <constraint firstItem="np3-zu-MH7" firstAttribute="leading" secondItem="q0Z-KU-OM2" secondAttribute="leading" constant="16" id="iNa-KM-fvQ"/>
-                            <constraint firstItem="BFd-Yq-QGQ" firstAttribute="centerY" secondItem="q0Z-KU-OM2" secondAttribute="centerY" multiplier="1.5" id="iTV-yv-VmY"/>
+                            <constraint firstItem="BFd-Yq-QGQ" firstAttribute="centerY" secondItem="q0Z-KU-OM2" secondAttribute="centerY" multiplier="1.6" id="iTV-yv-VmY"/>
                             <constraint firstItem="q0Z-KU-OM2" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="rDO-dX-b6P" secondAttribute="trailing" constant="10" id="iVf-GW-C7C"/>
                             <constraint firstItem="rDO-dX-b6P" firstAttribute="centerY" secondItem="84K-ff-fh2" secondAttribute="centerY" id="ieO-fk-eZe"/>
                             <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="S2N-F9-LH6" secondAttribute="trailing" constant="20" symbolic="YES" id="inX-fw-h8D"/>

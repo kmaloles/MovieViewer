@@ -28,19 +28,27 @@ class SeatMappingViewController: UIViewController {
     
     @IBOutlet weak var totalLabel: UILabel!
     
+    @IBOutlet weak var containerView: UIView!
+    
     var cinemaText = ""
     var dateText = ""
     var timeText = ""
     
-    var selectedSeats:Set<String> = []
+    var itemSizePreferred:CGFloat = 0.0
+    
+    var selectedSeats:Set<(String)> = []
+    var selectedIndexPaths:Set<IndexPath> = []
     
     var totalAmount: String? {
         let total = Double(self.selectedSchedule?.price ?? "0")! * Double(self.selectedSeats.count)
         return total.toCurrency()
     }
     
+    var scale:CGFloat = 1.0
+    
     var selectedDate: MovieDate? {
         didSet{
+            self.clearEverything()
             guard let s = selectedDate else {return}
             self.dateButton.setTitle(s.label ?? "", for: .normal)
             self.selectCinemaNumber(fromDate: s)
@@ -48,6 +56,7 @@ class SeatMappingViewController: UIViewController {
     }
     var selectedCinema: CinemaNumber? {
         didSet{
+            self.clearEverything()
             if let s = selectedCinema {
                 self.cinemaButton.setTitle(s.label ?? "", for: .normal)
                 self.cinemaButton.isUserInteractionEnabled = true
@@ -62,10 +71,7 @@ class SeatMappingViewController: UIViewController {
     }
     var selectedSchedule: TimeSchedule?{
         didSet{
-            self.selectedLabel.text = ""
-            self.totalLabel.text = ""
-            self.selectedSeats.removeAll()
-            
+            self.clearEverything()
             if let s = selectedSchedule {
                 self.timeButton.setTitle(s.label ?? "", for: .normal)
                 self.timeButton.isUserInteractionEnabled = true
@@ -90,14 +96,26 @@ class SeatMappingViewController: UIViewController {
         
     }
     
+    func clearEverything(){
+        self.selectedLabel.text = ""
+        self.totalLabel.text = ""
+        self.selectedSeats.removeAll()
+        self.collectionView.reloadItems(at: Array(self.selectedIndexPaths))
+        self.selectedIndexPaths.removeAll()
+    }
+    
     
     func initCollectionView(){
         collectionView.delegate = self
         collectionView.dataSource = self
         collectionView.register(SeatsCollectionViewCell.nib(), forCellWithReuseIdentifier: SeatsCollectionViewCell.reuseIdentifier())
         
+        let pinch = UIPinchGestureRecognizer.init(target: self, action: #selector(self.didDetectPinch(_:)))
+        self.collectionView.addGestureRecognizer(pinch)
+        
         let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
         let size = self.getDeviceWidth() * 0.021
+        self.itemSizePreferred = size
         layout.itemSize = CGSize.init(width: size, height: size)
         layout.sectionInset = UIEdgeInsets(top: 0, left: 10, bottom: 5, right: 10)
         layout.minimumInteritemSpacing = 1
@@ -108,6 +126,17 @@ class SeatMappingViewController: UIViewController {
         
         containerLabel.addBorder(color: .lightGray)
         self.view.updateConstraintsIfNeeded()
+    }
+    
+    @objc func didDetectPinch(_ gesture: UIPinchGestureRecognizer){
+        var scale:CGFloat = 1.0
+        
+        if gesture.state == .began {
+            scale = self.scale
+        }else if gesture.state == .changed {
+            self.scale = scale * gesture.scale
+            self.collectionView.collectionViewLayout.invalidateLayout()
+        }
     }
     
     func getMovieSchedule(){
@@ -140,7 +169,8 @@ class SeatMappingViewController: UIViewController {
     func selectAvailableDate(forKey key:String? = nil) {
         guard let fetchedSchedule = self.schedule else {return}
         if let k = key {
-            self.selectedDate = fetchedSchedule.dates?.filter{$0.label == k}.first
+            let s = fetchedSchedule.dates?.filter{$0.label == k}.first
+            self.selectedDate = s
         }else{
             guard let firstDateAvailable = fetchedSchedule.dates?.first else {return}
             self.selectedDate = firstDateAvailable
@@ -208,10 +238,14 @@ class SeatMappingViewController: UIViewController {
     
 }
 
-extension SeatMappingViewController: UICollectionViewDelegate, UICollectionViewDataSource {
+extension SeatMappingViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         return self.seatMapping?.seats?.count ?? 0
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize.init(width: self.itemSizePreferred * self.scale, height: self.itemSizePreferred * self.scale)
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -283,8 +317,7 @@ extension SeatMappingViewController: UICollectionViewDelegate, UICollectionViewD
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let selectedSection = indexPath.section
         let sectionItems = self.seatMapping?.seats?[selectedSection]
-        var selectedItem = indexPath.item
-        let upperOffset = (selectedSection == 0) ? 37 : 37
+        let selectedItem = indexPath.item
         guard selectedItem > 0 && selectedItem < 37 else {return}
         let item = sectionItems?[selectedItem - 1]
         guard ((self.seatMapping?.availableSeats?.list?.contains(where: {$0 == item}))!) else {return}
@@ -292,12 +325,16 @@ extension SeatMappingViewController: UICollectionViewDelegate, UICollectionViewD
         let s = item ?? ""
         if self.selectedSeats.contains(s){
             self.selectedSeats.remove(s)
+            self.selectedIndexPaths.remove(indexPath)
         }else{
             self.selectedSeats.insert(s)
+            self.selectedIndexPaths.insert(indexPath)
         }
         self.collectionView.reloadItems(at: [indexPath])
         self.buildAttributedString()
     }
+    
+    
     
     func buildAttributedString(){
         let att1 = [ NSAttributedStringKey.backgroundColor: UIColor.red, NSAttributedStringKey.foregroundColor: UIColor.white, NSAttributedStringKey.font: UIFont(name: "Arial", size: 15.0)! ]

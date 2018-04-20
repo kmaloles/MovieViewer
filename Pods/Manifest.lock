@@ -4,6 +4,7 @@ PODS:
   - Gloss (2.0.0)
   - Kingfisher (4.6.3)
   - PKHUD (5.0.0)
+  - ZoomCollectionView (0.1)
 
 DEPENDENCIES:
   - Alamofire (~> 4.5)
@@ -11,6 +12,16 @@ DEPENDENCIES:
   - Gloss (~> 2.0)
   - Kingfisher (~> 4.0)
   - PKHUD (~> 5.0)
+  - ZoomCollectionView (from `https://github.com/helmutschneider/ZoomCollectionView.git`)
+
+EXTERNAL SOURCES:
+  ZoomCollectionView:
+    :git: https://github.com/helmutschneider/ZoomCollectionView.git
+
+CHECKOUT OPTIONS:
+  ZoomCollectionView:
+    :commit: 5d94f87cc58b6f7477d72845c4f7edeaac074eba
+    :git: https://github.com/helmutschneider/ZoomCollectionView.git
 
 SPEC CHECKSUMS:
   Alamofire: 907e0a98eb68cdb7f9d1f541a563d6ac5dc77b25
@@ -18,7 +29,8 @@ SPEC CHECKSUMS:
   Gloss: b67617f327406adfd47adf20172d00680a3a31bd
   Kingfisher: 98e6d5b5e807645743e8ed5ececd25d688d38452
   PKHUD: 3c001512c6e002091184197a8de7a20420786e3b
+  ZoomCollectionView: c3f942c7858205f23b6654807c26eeac11ef5c3d
 
-PODFILE CHECKSUM: 2a0489e2e9b89131477227240307398f5de246ed
+PODFILE CHECKSUM: 756812265e419ec5aeac834263d9ed6aab9dd66d
 
 COCOAPODS: 1.4.0
