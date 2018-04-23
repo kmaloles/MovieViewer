@@ -10,11 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MovieViewer/controllers/SeatMappingViewController.swift"
-            timestampString = "545928135.203169"
+            timestampString = "546149473.6336401"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "207"
-            endingLineNumber = "207"
+            startingLineNumber = "212"
+            endingLineNumber = "212"
             landmarkName = "onDatePressed(_:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -34,15 +34,14 @@
          <BreakpointContent
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
-            condition = "indexPath.section == 1"
             continueAfterRunningActions = "No"
             filePath = "MovieViewer/controllers/SeatMappingViewController.swift"
-            timestampString = "545928135.205213"
+            timestampString = "546149473.634217"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "299"
-            endingLineNumber = "299"
-            landmarkName = "collectionView(_:cellForItemAt:)"
+            startingLineNumber = "268"
+            endingLineNumber = "268"
+            landmarkName = "collectionView(_:layout:sizeForItemAt:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -51,15 +50,14 @@
          <BreakpointContent
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
-            condition = "indexPath.section == 1"
             continueAfterRunningActions = "No"
             filePath = "MovieViewer/controllers/SeatMappingViewController.swift"
-            timestampString = "545928135.207094"
+            timestampString = "546149473.63473"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "297"
-            endingLineNumber = "297"
-            landmarkName = "collectionView(_:cellForItemAt:)"
+            startingLineNumber = "142"
+            endingLineNumber = "142"
+            landmarkName = "didDetectPinch(_:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -68,15 +66,14 @@
          <BreakpointContent
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
-            condition = "indexPath.section == 1"
             continueAfterRunningActions = "No"
-            filePath = "MovieViewer/controllers/SeatMappingViewController.swift"
-            timestampString = "545928135.208159"
+            filePath = "MovieViewer/layout/CollectionViewMatrixLayout.swift"
+            timestampString = "546149473.635169"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "301"
-            endingLineNumber = "301"
-            landmarkName = "collectionView(_:cellForItemAt:)"
+            startingLineNumber = "32"
+            endingLineNumber = "32"
+            landmarkName = "prepare()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -85,63 +82,14 @@
          <BreakpointContent
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
-            condition = "i ==  1"
             continueAfterRunningActions = "No"
-            filePath = "MovieViewer/controllers/SeatMappingViewController.swift"
-            timestampString = "545928135.209224"
+            filePath = "MovieViewer/layout/CollectionViewMatrixLayout.swift"
+            timestampString = "546149473.635223"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "180"
-            endingLineNumber = "180"
-            landmarkName = "selectCinemaNumber(fromDate:forKey:)"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "default argument 1 of MovieViewer.SeatMappingViewController.selectCinemaNumber(fromDate: MovieViewer.MovieDate, forKey: Swift.Optional&lt;Swift.String&gt;) -&gt; ()"
-                  moduleName = "MovieViewer"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/kevinmaloles/Documents/projects/MovieViewer/MovieViewer/controllers/SeatMappingViewController.swift"
-                  timestampString = "545927930.8525029"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "180"
-                  endingLineNumber = "180"
-                  offsetFromSymbolStart = "4">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "MovieViewer.SeatMappingViewController.selectCinemaNumber(fromDate: MovieViewer.MovieDate, forKey: Swift.Optional&lt;Swift.String&gt;) -&gt; ()"
-                  moduleName = "MovieViewer"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/kevinmaloles/Documents/projects/MovieViewer/MovieViewer/controllers/SeatMappingViewController.swift"
-                  timestampString = "545927930.857469"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "181"
-                  endingLineNumber = "181"
-                  offsetFromSymbolStart = "270">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "MovieViewer/controllers/SeatMappingViewController.swift"
-            timestampString = "545928135.21029"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "283"
-            endingLineNumber = "283"
-            landmarkName = "collectionView(_:cellForItemAt:)"
+            startingLineNumber = "103"
+            endingLineNumber = "103"
+            landmarkName = "prepareForTransition(to:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

@@ -113,16 +113,20 @@ class SeatMappingViewController: UIViewController {
         let pinch = UIPinchGestureRecognizer.init(target: self, action: #selector(self.didDetectPinch(_:)))
         self.collectionView.addGestureRecognizer(pinch)
         
-        let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
+//        let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
+//        let layout = CollectionViewMatrixLayout()
         let size = self.getDeviceWidth() * 0.021
-        self.itemSizePreferred = size
-        layout.itemSize = CGSize.init(width: size, height: size)
-        layout.sectionInset = UIEdgeInsets(top: 0, left: 10, bottom: 5, right: 10)
-        layout.minimumInteritemSpacing = 1
-        layout.minimumLineSpacing = 0
-        layout.scrollDirection = .vertical
+        
+        self.prepareLayout(withCellSize: size)
+//        self.itemSizePreferred = size
+//        layout.itemSize = CGSize.init(width: size, height: size)
+//        layout.sectionInset = UIEdgeInsets(top: 0, left: 10, bottom: 5, right: 10)
+//        layout.minimumInteritemSpacing = 1
+//        layout.minimumLineSpacing = 0
+//        layout.scrollDirection = .vertical
+        
 //        print("DEVICE WIDTH \(self.getDeviceWidth())")
-        collectionView.collectionViewLayout = layout
+//        collectionView.collectionViewLayout = layout
         
         containerLabel.addBorder(color: .lightGray)
         self.view.updateConstraintsIfNeeded()
@@ -135,7 +139,8 @@ class SeatMappingViewController: UIViewController {
             scale = self.scale
         }else if gesture.state == .changed {
             self.scale = scale * gesture.scale
-            self.collectionView.collectionViewLayout.invalidateLayout()
+            self.prepareLayout(withCellSize: self.itemSizePreferred * self.scale)
+//            self.collectionView.collectionViewLayout.invalidateLayout()
         }
     }
     
@@ -207,6 +212,21 @@ class SeatMappingViewController: UIViewController {
         self.showPicker(dateList) { (action) in
             self.selectAvailableDate(forKey: action.title ?? "")
         }
+    }
+    
+    func prepareLayout(withCellSize size: CGFloat){
+        let layout = CollectionViewMatrixLayout()
+        self.itemSizePreferred = size
+        layout.itemSize = CGSize.init(width: size, height: size)
+        layout.sectionInset = UIEdgeInsets(top: 0, left: 10, bottom: 5, right: 10)
+        layout.minimumInteritemSpacing = 1
+        layout.minimumLineSpacing = 0
+        layout.scrollDirection = .vertical
+        
+        //        print("DEVICE WIDTH \(self.getDeviceWidth())")
+        collectionView.collectionViewLayout = layout
+        
+//        collectionView.collectionViewLayout.invalidateLayout()
     }
     
     @IBAction func onCinemaPressed(_ sender: UIButton) {

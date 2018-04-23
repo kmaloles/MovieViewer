@@ -11,6 +11,7 @@
 		3C2345242088E29200726CAC /* DateFormatHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C2345232088E29200726CAC /* DateFormatHelper.swift */; };
 		3C71D8FC20878D5B0056A590 /* SeatsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C71D8FA20878D5B0056A590 /* SeatsCollectionViewCell.swift */; };
 		3C71D8FD20878D5B0056A590 /* SeatsCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3C71D8FB20878D5B0056A590 /* SeatsCollectionViewCell.xib */; };
+		3C882315208D7EE200D00865 /* CollectionViewMatrixLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C882314208D7EE200D00865 /* CollectionViewMatrixLayout.swift */; };
 		3CAA6A5920865E9000AF2826 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CAA6A5820865E9000AF2826 /* AppDelegate.swift */; };
 		3CAA6A5B20865E9000AF2826 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CAA6A5A20865E9000AF2826 /* ViewController.swift */; };
 		3CAA6A5E20865E9000AF2826 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3CAA6A5C20865E9000AF2826 /* Main.storyboard */; };
@@ -45,6 +46,7 @@
 		3C2345232088E29200726CAC /* DateFormatHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormatHelper.swift; sourceTree = "<group>"; };
 		3C71D8FA20878D5B0056A590 /* SeatsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeatsCollectionViewCell.swift; sourceTree = "<group>"; };
 		3C71D8FB20878D5B0056A590 /* SeatsCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SeatsCollectionViewCell.xib; sourceTree = "<group>"; };
+		3C882314208D7EE200D00865 /* CollectionViewMatrixLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewMatrixLayout.swift; sourceTree = "<group>"; };
 		3CAA6A5520865E9000AF2826 /* MovieViewer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MovieViewer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3CAA6A5820865E9000AF2826 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3CAA6A5A20865E9000AF2826 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -109,6 +111,14 @@
 			path = cell;
 			sourceTree = "<group>";
 		};
+		3C882316208D898500D00865 /* layout */ = {
+			isa = PBXGroup;
+			children = (
+				3C882314208D7EE200D00865 /* CollectionViewMatrixLayout.swift */,
+			);
+			path = layout;
+			sourceTree = "<group>";
+		};
 		3CAA6A4C20865E9000AF2826 = {
 			isa = PBXGroup;
 			children = (
@@ -132,6 +142,7 @@
 		3CAA6A5720865E9000AF2826 /* MovieViewer */ = {
 			isa = PBXGroup;
 			children = (
+				3C882316208D898500D00865 /* layout */,
 				3C71D8F820878D440056A590 /* data */,
 				3CAA6A9220874EE300AF2826 /* controllers */,
 				3CAA6A8F20866F9800AF2826 /* service */,
@@ -398,6 +409,7 @@
 				3CAA6A87208660A300AF2826 /* Extensions.swift in Sources */,
 				3CAA6A8A2086614900AF2826 /* Movie.swift in Sources */,
 				3CAA6A8E20866CAB00AF2826 /* SeatMap.swift in Sources */,
+				3C882315208D7EE200D00865 /* CollectionViewMatrixLayout.swift in Sources */,
 				3CAA6A8C2086649E00AF2826 /* Schedule.swift in Sources */,
 				3C2345242088E29200726CAC /* DateFormatHelper.swift in Sources */,
 				3C71D8FC20878D5B0056A590 /* SeatsCollectionViewCell.swift in Sources */,
