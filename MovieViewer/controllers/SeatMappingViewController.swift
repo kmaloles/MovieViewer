@@ -44,6 +44,8 @@ class SeatMappingViewController: UIViewController {
         return total.toCurrency()
     }
     
+    let minimumCellSize:CGFloat =  UIScreen.main.bounds.width * 0.021
+    let maximumCellSize:CGFloat =  50.0
     var scale:CGFloat = 1.0
     
     var selectedDate: MovieDate? {
@@ -113,20 +115,7 @@ class SeatMappingViewController: UIViewController {
         let pinch = UIPinchGestureRecognizer.init(target: self, action: #selector(self.didDetectPinch(_:)))
         self.collectionView.addGestureRecognizer(pinch)
         
-//        let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
-//        let layout = CollectionViewMatrixLayout()
-        let size = self.getDeviceWidth() * 0.021
-        
-        self.prepareLayout(withCellSize: size)
-//        self.itemSizePreferred = size
-//        layout.itemSize = CGSize.init(width: size, height: size)
-//        layout.sectionInset = UIEdgeInsets(top: 0, left: 10, bottom: 5, right: 10)
-//        layout.minimumInteritemSpacing = 1
-//        layout.minimumLineSpacing = 0
-//        layout.scrollDirection = .vertical
-        
-//        print("DEVICE WIDTH \(self.getDeviceWidth())")
-//        collectionView.collectionViewLayout = layout
+        self.prepareLayout(withCellSize: minimumCellSize)
         
         containerLabel.addBorder(color: .lightGray)
         self.view.updateConstraintsIfNeeded()
@@ -140,7 +129,6 @@ class SeatMappingViewController: UIViewController {
         }else if gesture.state == .changed {
             self.scale = scale * gesture.scale
             self.prepareLayout(withCellSize: self.itemSizePreferred * self.scale)
-//            self.collectionView.collectionViewLayout.invalidateLayout()
         }
     }
     
@@ -218,7 +206,21 @@ class SeatMappingViewController: UIViewController {
         let layout = CollectionViewMatrixLayout()
         self.itemSizePreferred = size
         layout.itemSize = CGSize.init(width: size, height: size)
-        layout.sectionInset = UIEdgeInsets(top: 0, left: 10, bottom: 5, right: 10)
+        if size < self.minimumCellSize {
+            layout.itemSize = CGSize.init(width: self.minimumCellSize, height: self.minimumCellSize)
+        }
+        
+        if size > maximumCellSize {
+            layout.itemSize = CGSize.init(width: self.maximumCellSize, height: self.maximumCellSize)
+        }
+        
+        let totalCellWidth = size * 40
+        let totalSpacingWidth:CGFloat = 1.0 * (40.0 - 1.0)
+        
+        let leftInset = (self.collectionView.frame.width - CGFloat(totalCellWidth + totalSpacingWidth)) / 2
+        let rightInset = leftInset
+        
+        layout.sectionInset = UIEdgeInsets(top: 0, left: leftInset, bottom: 5, right: rightInset)
         layout.minimumInteritemSpacing = 1
         layout.minimumLineSpacing = 0
         layout.scrollDirection = .vertical
@@ -226,7 +228,6 @@ class SeatMappingViewController: UIViewController {
         //        print("DEVICE WIDTH \(self.getDeviceWidth())")
         collectionView.collectionViewLayout = layout
         
-//        collectionView.collectionViewLayout.invalidateLayout()
     }
     
     @IBAction func onCinemaPressed(_ sender: UIButton) {
